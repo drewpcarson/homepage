@@ -1,37 +1,97 @@
-@dim: 100px;
-@background: red;
+@highlight-dark: #990909;
+@highlight-med: #cc8329;
+@highlight-light: #f5ee25;
+
+@xs: 4px;
+@s: 8px;
+@m: 16px;
+@l: 32px;
+@xl: 64px;
+
+@font-main-header: 'Courier', 'Arial', sans-serif;
 
 
-.tester{
-    display: block;
-    width: @dim;
-    height: @dim;
-    background-color: @background;
-    color: white;
-}
-
-#main-nav{
-    list-style-type: none;
-
+html, body{
     margin: 0;
     padding: 0;
+}
 
-    li{
-        display: inline-block;
-        padding: 10px;
-        margin: 0 5px;
+body{
+    background-color: #eee;
+    font-family: @font-main-header;
+}
 
-        border-radius: 5px;
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
 
-        text-decoration: none;
-        color: black;
-    }
+#header-content{
+    #main-nav{
+        list-style-type: none;
+    
+        margin: @s;
+        padding: 0;
+    
+        li{
+            display: inline-block;
+            padding: 10px;
+            margin: 0 5px;
+    
+            border-radius: 5px;
+    
+            text-decoration: none!important;
+            color: rgba(0, 0, 0, 0.3);
 
-    :visited{
-        color: black;
-    }
+            a{
+                display: block;
+            }
+        }
+    
+        li.selected{
+            color: white;
+            background-color: @highlight-dark;
+        }
 
-    .selected{
-        background-color: #eee;
+        li:hover:not(.selected){
+            background-color: #ddd;
+            cursor: pointer;
+        }
     }
 }
+
+#splash-content{
+    background-color: #f0f;
+    background: #f0f url('../res/splash1.jpg') no-repeat fixed;
+    background-size: contain;
+    background-position: 0% -40%;
+
+    width: 100vw;
+    height: 60vh;
+}
+
+#body-content{
+    background-color: @highlight-light;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+
+    #left-nav{
+        width: 20vw;
+
+        
+    }
+
+    #main-content{
+        flex-grow: 1;
+    }
+
+    #right-nav{
+        width: 10vw;
+    }
+}
+
+#footer-content{
+
+}
+

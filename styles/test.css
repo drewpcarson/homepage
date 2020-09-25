@@ -1,3 +1,60 @@
-.tester {
-  width: 100px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #eee;
+  font-family: 'Courier', 'Arial', sans-serif;
+}
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+#header-content #main-nav {
+  list-style-type: none;
+  margin: 8px;
+  padding: 0;
+}
+#header-content #main-nav li {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-decoration: none!important;
+  color: rgba(0, 0, 0, 0.3);
+}
+#header-content #main-nav li a {
+  display: block;
+}
+#header-content #main-nav li.selected {
+  color: white;
+  background-color: #990909;
+}
+#header-content #main-nav li:hover:not(.selected) {
+  background-color: #ddd;
+  cursor: pointer;
+}
+#splash-content {
+  background-color: #f0f;
+  background: #f0f url('../res/splash1.jpg') no-repeat fixed;
+  background-size: contain;
+  background-position: 0% -40%;
+  width: 100vw;
+  height: 60vh;
+}
+#body-content {
+  background-color: #f5ee25;
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+}
+#body-content #left-nav {
+  width: 20vw;
+}
+#body-content #main-content {
+  flex-grow: 1;
+}
+#body-content #right-nav {
+  width: 10vw;
 }
