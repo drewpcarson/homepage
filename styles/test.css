@@ -11,6 +11,13 @@ a {
   text-decoration: inherit;
   color: inherit;
 }
+#header-content {
+  display: flex;
+  flex-direction: row;
+}
+#header-content #main-title {
+  flex-grow: 0;
+}
 #header-content #main-nav {
   list-style-type: none;
   margin: 8px;
