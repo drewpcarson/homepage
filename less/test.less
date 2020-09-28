@@ -1,7 +1,9 @@
 @highlight-dark: #990909;
 @highlight-med: #cc8329;
 @highlight-light: #f5ee25;
+@shadow: rgba(0,0,0,0.3);
 
+@0: 0px;
 @xs: 4px;
 @s: 8px;
 @m: 16px;
@@ -9,6 +11,35 @@
 @xl: 64px;
 
 @font-main-header: 'Courier', 'Arial', sans-serif;
+
+
+@media screen and (min-width: 994px){
+    .menu-toggle{
+        display: none;
+    }
+
+    #main-nav{
+        li{
+            display: inline-block;
+            padding: 10px;
+            margin: 0 5px;
+    
+            border-radius: 5px;
+    
+            text-decoration: none!important;
+            color: rgba(0, 0, 0, 0.3);
+
+            a{
+                display: block;
+            }
+        }
+
+        li:hover:not(.selected){
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    }
+}
 
 
 html, body{
@@ -31,7 +62,8 @@ a {
     flex-direction: row; 
 
     #main-title{
-        flex-grow: 0; 
+        flex-grow: 1; 
+        margin: @m; 
     }
 
     #main-nav{
@@ -39,30 +71,26 @@ a {
     
         margin: @s;
         padding: 0;
-    
-        li{
-            display: inline-block;
-            padding: 10px;
-            margin: 0 5px;
-    
-            border-radius: 5px;
-    
-            text-decoration: none!important;
-            color: rgba(0, 0, 0, 0.3);
+        float: right; 
 
+        li{
             a{
                 display: block;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
         }
-    
+
         li.selected{
             color: white;
             background-color: @highlight-dark;
         }
 
-        li:hover:not(.selected){
-            background-color: #ddd;
-            cursor: pointer;
+        li:not(.selected):hover{
+            background-color: @shadow; 
+            cursor: pointer; 
         }
     }
 }
@@ -70,7 +98,7 @@ a {
 #splash-content{
     background-color: #f0f;
     background: #f0f url('../res/splash1.jpg') no-repeat fixed;
-    background-size: contain;
+    background-size: cover;
     background-position: 0% -40%;
 
     width: 100vw;
@@ -102,3 +130,53 @@ a {
 
 }
 
+
+@media screen and (min-width: 480px){
+    .menu-toggle{
+        display: block;
+        width: @l;
+        height: @l;
+        margin: @m;
+    }
+
+    .menu-toggle .menu-icon{
+        display: block; 
+        width: 100%;
+        height: 100%;
+    }
+
+    .menu-toggle.selected .menu-icon{
+        fill: black;
+    }
+    
+    .hamburger-menu{
+        display: none;
+    }
+
+    .menu-toggle.selected + .hamburger-menu{
+        display: block;
+
+        position: absolute; 
+        top: @l + (@m * 2);
+        left: 0;
+
+        width: 100vw;
+
+        margin: 0!important; 
+
+        background-color: white;
+
+        li{
+            display: block;
+            background-color: white;
+
+            border: 1px solid @shadow;
+            border-radius: 0 0 1px 0;
+
+            width: 100vw - @0;
+            padding: @m;
+
+            text-align: center;
+        }
+    }
+}

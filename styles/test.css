@@ -1,3 +1,23 @@
+@media screen and (min-width: 994px) {
+  .menu-toggle {
+    display: none;
+  }
+  #main-nav li {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    text-decoration: none!important;
+    color: rgba(0, 0, 0, 0.3);
+  }
+  #main-nav li a {
+    display: block;
+  }
+  #main-nav li:hover:not(.selected) {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+}
 html,
 body {
   margin: 0;
@@ -16,36 +36,34 @@ a {
   flex-direction: row;
 }
 #header-content #main-title {
-  flex-grow: 0;
+  flex-grow: 1;
+  margin: 16px;
 }
 #header-content #main-nav {
   list-style-type: none;
   margin: 8px;
   padding: 0;
-}
-#header-content #main-nav li {
-  display: inline-block;
-  padding: 10px;
-  margin: 0 5px;
-  border-radius: 5px;
-  text-decoration: none!important;
-  color: rgba(0, 0, 0, 0.3);
+  float: right;
 }
 #header-content #main-nav li a {
   display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 #header-content #main-nav li.selected {
   color: white;
   background-color: #990909;
 }
-#header-content #main-nav li:hover:not(.selected) {
-  background-color: #ddd;
+#header-content #main-nav li:not(.selected):hover {
+  background-color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 #splash-content {
   background-color: #f0f;
   background: #f0f url('../res/splash1.jpg') no-repeat fixed;
-  background-size: contain;
+  background-size: cover;
   background-position: 0% -40%;
   width: 100vw;
   height: 60vh;
@@ -64,4 +82,41 @@ a {
 }
 #body-content #right-nav {
   width: 10vw;
+}
+@media screen and (min-width: 480px) {
+  .menu-toggle {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 16px;
+  }
+  .menu-toggle .menu-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .menu-toggle.selected .menu-icon {
+    fill: black;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .menu-toggle.selected + .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    margin: 0!important;
+    background-color: white;
+  }
+  .menu-toggle.selected + .hamburger-menu li {
+    display: block;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 1px 0;
+    width: 100vw;
+    padding: 16px;
+    text-align: center;
+  }
 }

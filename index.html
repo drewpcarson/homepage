@@ -22,12 +22,26 @@
    <body>
         <div id="header-content">
             <h3 id="main-title">DCKAZI</h3>
-            <ul id="main-nav">
+            <div class="menu-toggle" onclick="toggleSelect(this)">
+                <img src="./res/meat.svg" class="menu-icon" /> 
+            </div>
+            <ul id="main-nav" class="hamburger-menu" >
                 <li class="nav-item selected"><a href="./index.html">Home</a></li>
                 <li class="nav-item"><a href="./portfolio.html">Portfolio</a></li>
                 <li class="nav-item"><a href="./social.html">Social</a></li>
                 <li class="nav-item"><a href="./about.html">About</a></li>
             </ul>
+            
+            <script type="text/javascript">
+                const toggleSelect = function(el){
+                    if(el.classList.contains('selected')){
+                        el.classList.remove('selected');
+                    }
+                    else{
+                        el.classList.add('selected');
+                    }
+                }
+            </script>
         </div>
 
         <div id="splash-content">
